@@ -39,7 +39,11 @@ const Check = () => {
       if (result.error) {
         alert("Error: " + result.error);
       } else {
+        // Save report text, PDF URL, and timestamp to localStorage
         localStorage.setItem("finalReport", result.output);
+        localStorage.setItem("finalReportPdfUrl", result.pdfUrl);
+        localStorage.setItem("finalReportTimestamp", result.timestamp);
+        localStorage.setItem("finalReportPatientId", report.patientId);
         navigate("/final-report");
       }
     } catch (error) {

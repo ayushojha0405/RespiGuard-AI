@@ -4,6 +4,14 @@ import cv2
 import numpy as np
 import torch.nn as nn
 import os
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
+from reportlab.lib.units import inch
+from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+import datetime
 
 
 # CUDA check
@@ -581,26 +589,64 @@ model.eval()
 
 def run_model(image_path, patient_id="Unknown"):
     detections = predict_disease(model, image_path, device)
-    
-    # Generate visual report (optional)
-    enhanced_visualize_prediction(
-        image_path,
-        detections,
-        save_path=f'temp_images/{patient_id}_report.png'
-    )
+
+    # Generate annotated image
+    annotated_path = f'temp_images/{patient_id}_report.png'
+    enhanced_visualize_prediction(image_path, detections, save_path=annotated_path)
 
     # Generate textual report
-    report = generate_medical_report(
-        image_path,
-        detections,
-        patient_id=patient_id
-    )
+    report = generate_medical_report(image_path, detections, patient_id)
 
-    # Optionally save report to a file
+    # Save text file (optional)
     with open(f'temp_images/{patient_id}_report.txt', 'w') as f:
         f.write(report)
 
-    return report  # return as string
+    # Generate PDF
+    pdf_path = generate_pdf_report(annotated_path, report, patient_id)
+
+    return {
+    "text": report,
+    "pdfPath": pdf_path,
+    "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+}
 
 
+def generate_pdf_report(image_path, report_text, patient_id="Unknown"):
+    from reportlab.platypus import Image as RLImage
 
+    pdf_path = f"temp_images/{patient_id}_report.pdf"
+    doc = SimpleDocTemplate(pdf_path, pagesize=A4, rightMargin=40, leftMargin=40, topMargin=60, bottomMargin=40)
+    elements = []
+    styles = getSampleStyleSheet()
+
+    # Title
+    title_style = styles['Heading1']
+    title_style.textColor = colors.darkblue
+    elements.append(Paragraph(f"Chest X-Ray AI Report", title_style))
+    elements.append(Spacer(1, 12))
+
+    # Patient ID and Timestamp
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    meta_text = f"<b>Patient ID:</b> {patient_id} <br/><b>Generated:</b> {timestamp}"
+    elements.append(Paragraph(meta_text, styles["Normal"]))
+    elements.append(Spacer(1, 12))
+
+    # Add image (resized to fit page)
+    try:
+        img = RLImage(image_path, width=5.5 * inch, height=4 * inch)
+        elements.append(img)
+        elements.append(Spacer(1, 12))
+    except Exception as e:
+        print("Error loading image into PDF:", e)
+
+    # Add report content
+    paragraphs = report_text.strip().split("\n")
+    for para in paragraphs:
+        if para.strip():
+            elements.append(Paragraph(para.strip().replace("  ", "&nbsp;&nbsp;"), styles["Normal"]))
+            elements.append(Spacer(1, 6))
+
+    # Build PDF
+    doc.build(elements)
+    return pdf_path

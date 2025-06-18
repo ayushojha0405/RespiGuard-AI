@@ -5,14 +5,15 @@ import Sidebar from "./Sidebar";
 
 const FinalReport = () => {
   const [report, setReport] = useState("");
+  const [pdfUrl, setPdfUrl] = useState("");
+  const [timestamp, setTimestamp] = useState("");
+  const [patientId, setPatientId] = useState("");
 
   useEffect(() => {
-    const savedReport = localStorage.getItem("finalReport");
-    if (savedReport) {
-      setReport(savedReport);
-    } else {
-      setReport("No report found. Please run a test first.");
-    }
+    setReport(localStorage.getItem("finalReport") || "No report found.");
+    setPdfUrl(localStorage.getItem("finalReportPdfUrl") || "");
+    setTimestamp(localStorage.getItem("finalReportTimestamp") || "");
+    setPatientId(localStorage.getItem("finalReportPatientId") || "Unknown");
   }, []);
 
   return (
@@ -21,16 +22,54 @@ const FinalReport = () => {
       <div className="main-section">
         <Sidebar />
         <div className="dashboard-content">
-          <h1>AI-Generated Final Report</h1>
-          <pre style={{
-            background: "#f4f4f4",
-            padding: "1rem",
-            borderRadius: "8px",
-            whiteSpace: "pre-wrap",
-            wordWrap: "break-word"
-          }}>
+          <h1>Final Report for Patient ID: {patientId}</h1>
+          <p><strong>Generated At:</strong> {timestamp}</p>
+
+          <pre
+            style={{
+              background: "#f4f4f4",
+              padding: "1rem",
+              borderRadius: "8px",
+              whiteSpace: "pre-wrap",
+              wordWrap: "break-word",
+              marginBottom: "1.5rem"
+            }}
+          >
             {report}
           </pre>
+
+          {pdfUrl && (
+            <>
+              <h2>Attached PDF Report</h2>
+              <iframe
+                src={pdfUrl}
+                title="AI Medical Report"
+                width="100%"
+                height="600px"
+                style={{
+                  border: "1px solid #ccc",
+                  borderRadius: "8px",
+                  marginBottom: "1rem"
+                }}
+              />
+
+              <a
+                href={pdfUrl}
+                download={`Report_${patientId}.pdf`}
+                className="test-btn"
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "#28a745",
+                  color: "white",
+                  padding: "10px 16px",
+                  borderRadius: "6px",
+                  textDecoration: "none"
+                }}
+              >
+                ⬇ Download PDF
+              </a>
+            </>
+          )}
         </div>
       </div>
       <Footer />
