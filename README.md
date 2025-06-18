@@ -71,7 +71,6 @@ scipy
 * Only `.jpg` images are supported.
 * React and Flask must both be running locally.
 * For best results, use a GPU-enabled PyTorch setup.
-
 ---
 
 
