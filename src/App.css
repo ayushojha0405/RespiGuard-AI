@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+/* Set up the whole app container to take full height of viewport */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e9f8fc; /* light background */
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+/* Header: fixed on top */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer: fixed at bottom */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;  /* pushes footer to bottom */
+}
+
+/* Content area will adjust dynamically */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: #105c70;
+  color: white;
+  padding: 20px;
+}
+
+/* Optional: Smooth scrolling experience */
+html {
+  scroll-behavior: smooth;
+}
+
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #e9f8fc;
+  padding: 30px;
+  box-sizing: border-box;
+}

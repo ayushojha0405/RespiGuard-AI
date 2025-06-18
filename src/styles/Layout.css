@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: #12657b;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.content {
+  background-color: #e6f6fa;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.footer {
+  background-color: #062b35;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}

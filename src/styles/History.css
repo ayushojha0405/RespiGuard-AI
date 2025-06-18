@@ -1,0 +1,28 @@
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: #bceaf6;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history-table th,
+.history-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  color: #031216;
+  font-size: 16px;
+}
+
+.history-table th {
+  background-color: #105c70;
+  color: white;
+  font-size: 18px;
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}

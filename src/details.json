@@ -1,0 +1,20 @@
+[
+  {
+    "patientId": "P001",
+    "patientName": "John Doe",
+    "age": 45,
+    "gender": "Male",
+    "examDate": "2025-06-17",
+    "doctorName": "Dr. Ayush Ranjan Ojha",
+    "scanFile": "scan1.jpg"
+  },
+  {
+    "patientId": "P002",
+    "patientName": "Jane Smith",
+    "age": 32,
+    "gender": "Female",
+    "examDate": "2025-06-18",
+    "doctorName": "Dr. Ayush Ranjan Ojha",
+    "scanFile": "scan2.jpg"
+  }
+]

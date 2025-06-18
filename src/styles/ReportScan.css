@@ -1,0 +1,46 @@
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-section {
+  background-color: #bceaf6;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h3 {
+  color: #105c70;
+  margin-bottom: 20px;
+}
+
+.report-form input,
+.report-form select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.report-form input[readonly] {
+  background-color: #f2f2f2;
+}
+
+.submit-btn {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1ca6c9;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #16819c;
+}

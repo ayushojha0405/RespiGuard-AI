@@ -1,0 +1,52 @@
+# Node.js / React
+node_modules/
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.pth
+
+# Virtual environment
+venv/
+.venv/
+
+# Flask server artifacts
+*.log
+instance/
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports / Output
+temp_images/
+*.txt
+*.png
+chest_analysis_report.png
+chest_report.txt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode settings (optional)
+.vscode/
+
+# Backup / Swap files
+*~
+*.swp
+*.swo

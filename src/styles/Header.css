@@ -1,0 +1,34 @@
+.titlebar {
+  background-color: #16819c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 70px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-left img, .logo-right img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+}
+
+.title-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-center h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
