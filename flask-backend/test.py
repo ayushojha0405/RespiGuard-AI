@@ -622,7 +622,7 @@ def generate_pdf_report(image_path, report_text, patient_id="Unknown"):
     # Title
     title_style = styles['Heading1']
     title_style.textColor = colors.darkblue
-    elements.append(Paragraph(f"Chest X-Ray AI Report", title_style))
+    elements.append(Paragraph(f"RespiGuard AI - X-Ray Report", title_style))
     elements.append(Spacer(1, 12))
 
     # Patient ID and Timestamp
