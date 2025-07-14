@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import "./../styles/Dashboard.css";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
+const useCountUp = (target, duration = 1500) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = null;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const percentage = Math.min(progress / duration, 1);
+      const eased = Math.floor(percentage * target);
+      setCount(eased);
+      if (percentage < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target); // ensure it ends exactly at target
+      }
+    };
+
+    requestAnimationFrame(step);
+  }, [target, duration]);
+
+  return count;
+};
+
 const Dashboard = () => {
   const doctorUsername = localStorage.getItem("doctorUsername");
+
+  const totalPatients = useCountUp(450);
+  const activeScans = useCountUp(120);
+  const criticalCases = useCountUp(15);
+  const recovered = useCountUp(310);
 
   const lineData = [
     { month: "Jan", patients: 10 },
@@ -30,24 +59,24 @@ const Dashboard = () => {
       <div className="main-section">
         <Sidebar />
         <div className="dashboard-content">
-          <h1>Hello, Dr. {doctorUsername}</h1>
+          <h1 className="animated-gradient-text">Hello, Dr. {doctorUsername}</h1>
 
           <div className="summary-cards">
             <div className="card">
               <h3>Total Patients</h3>
-              <p>450</p>
+              <p>{totalPatients}</p>
             </div>
             <div className="card">
               <h3>Active Scans</h3>
-              <p>120</p>
+              <p>{activeScans}</p>
             </div>
             <div className="card">
               <h3>Critical Cases</h3>
-              <p>15</p>
+              <p>{criticalCases}</p>
             </div>
             <div className="card">
               <h3>Recovered</h3>
-              <p>310</p>
+              <p>{recovered}</p>
             </div>
           </div>
 

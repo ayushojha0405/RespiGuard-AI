@@ -1,22 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .titlebar {
-  background-color: #16819c;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 20px;
+  width: calc(100% - 40px);
+  height: 70px;
+
+  background: rgba(100, 180, 200, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  height: 70px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+
+  z-index: 1000;
 }
 
-.logo-left img, .logo-right img {
+.logo-left img {
   height: 60px;
   width: auto;
   object-fit: contain;
-  margin: 0;
+  margin-right: 180px;
   padding: 0;
+}
+
+.logo-right img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 60px;
 }
 
 .title-center {
@@ -26,9 +48,10 @@
 }
 
 .title-center h1 {
-  color: white;
-  font-size: 28px;
-  font-weight: 600;
+  color: rgb(0, 17, 36);
+  font-size: 29px;
+  font-style: bold;
+  font-weight: 650;
   margin: 0;
   padding: 0;
 }

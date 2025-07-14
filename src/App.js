@@ -10,6 +10,7 @@ import TestLab from "./components/TestLab";
 import HelpDocs from "./components/HelpDocs";
 import Check from "./components/Check";
 import FinalReport from "./components/FinalReport";
+import MyProfile from "./components/MyProfile";
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Check" element={<Check />} />
         <Route path="/helpdocs" element={<HelpDocs />} />
         <Route path="/final-report" element={<FinalReport />} />
+        <Route path="/myprofile" element={<MyProfile />} />
 
       </Routes>
     </BrowserRouter>

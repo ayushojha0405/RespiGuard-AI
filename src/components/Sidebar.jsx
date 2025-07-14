@@ -17,7 +17,7 @@ const Sidebar = () => {
         <NavLink to="/helpdocs" activeclassname="active">Help & Docs</NavLink>
         <NavLink to="/settings" activeclassname="active">Settings</NavLink>
         <NavLink to="/feedback" activeclassname="active">Feedback</NavLink>
-        <NavLink to="/profile" activeclassname="active">My Profile</NavLink>
+        <NavLink to="/myprofile" activeclassname="active">My Profile</NavLink>
         <NavLink to="/" activeclassname="active">Logout</NavLink>
       </nav>
     </div>

@@ -1,0 +1,50 @@
+[
+  {
+    "username": "ayushrojha777",
+    "fullname": "Ayush Ranjan Ojha",
+    "email": "ayush@example.com",
+    "phone": "+919123456789",
+    "qualification": "MBBS, MD (Pulmonology)",
+    "specialization": "Respiratory Health",
+    "experience": "8 years",
+    "patientsHandled": 1200,
+    "rating": 4.8,
+    "availability": "Mon-Fri, 9am-5pm",
+    "hospital": "NALCO Medical Center",
+    "address": "NALCO Township, Damanjodi",
+    "image": "ayush.jpg"
+  },
+
+  {
+    "username": "anuprad91",
+    "fullname": "Anurag Pradhan",
+    "email": "anurag@example.com",
+    "phone": "+919123456789",
+    "qualification": "MBBS, MD (Pulmonology)",
+    "specialization": "Respiratory Health",
+    "experience": "8 years",
+    "patientsHandled": 1200,
+    "rating": 4.8,
+    "availability": "Mon-Fri, 9am-5pm",
+    "hospital": "NALCO Medical Center",
+    "address": "NALCO Township, Damanjodi",
+    "image": "anurag.jpg"
+  },
+
+  {
+    "username": "pratsahoo69",
+    "fullname": "Prateek Sahoo",
+    "email": "prateek@example.com",
+    "phone": "+919123456789",
+    "qualification": "MBBS, MD (Pulmonology)",
+    "specialization": "Respiratory Health",
+    "experience": "8 years",
+    "patientsHandled": 1200,
+    "rating": 4.8,
+    "availability": "Mon-Fri, 9am-5pm",
+    "hospital": "NALCO Medical Center",
+    "address": "NALCO Township, Damanjodi",
+    "image": "prateek.jpg"
+  }
+
+]
